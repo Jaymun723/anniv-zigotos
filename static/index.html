@@ -56,6 +56,10 @@
         transform: translateY(5px);
         box-shadow: none;
       }
+
+      #video {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -63,6 +67,10 @@
     <div id="wrapper">
       <button id="unlock">Déverrouiller</button>
     </div>
+
+    <video id="video" controls>
+      <source type="video/mp4" src="/video_presentation.mp4" />
+    </video>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/index.js"></script>

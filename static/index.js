@@ -1,5 +1,8 @@
 const sardocheAudio = new Audio("/sardoche.mp3")
 const continuerAudio = new Audio("/continuer.mp3")
+const videoEl = document.getElementById("video")
+const unlockBtn = document.getElementById("unlock")
+
 let socket
 
 const setupBtn = document.getElementById("setup")
@@ -16,9 +19,15 @@ setupBtn.addEventListener("click", () => {
   })
 })
 
-const unlockBtn = document.getElementById("unlock")
 const unlock = () => {
-  location.href = "https://discord.gg/AemgfJeQJp"
+  videoEl.style.display = "block"
+  videoEl.requestFullscreen()
 }
 unlockBtn.addEventListener("touchend", unlock)
 unlockBtn.addEventListener("mouseup", unlock)
+
+videoEl.addEventListener("ended", () => {
+  setTimeout(() => {
+    location.href = "https://discord.gg/AemgfJeQJp"
+  }, 2000)
+})
